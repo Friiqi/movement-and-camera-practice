@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
 		characterController = GetComponent<CharacterController> ();
 	}
 
-	private void Update ()
+	private void FixedUpdate ()
 	{
 		isWalking = true;
 		if (Input.GetAxis ("Run") != 0) 
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
 				velocity *= isWalking ? walkSpeed * currentSpeedModifier : runSpeed *currentSpeedModifier;
 				if (Input.GetButton("Jump"))
 				{
-					velocity.y *= jumpSpeed;
+					velocity.y = jumpSpeed;
 				Debug.Log ("hyppy");
 				}
 				velocity = transform.TransformDirection(velocity);
